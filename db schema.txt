@@ -1,0 +1,51 @@
+mysql> use taxibooking
+Database changed
+mysql> show tables;
++-----------------------+
+| Tables_in_taxibooking |
++-----------------------+
+| customer              |
+| history               |
+| taxi                  |
++-----------------------+
+3 rows in set (0.03 sec)
+
+mysql> desc customer;
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| cust_id        | int         | NO   | PRI | NULL    | auto_increment |
+| username       | varchar(30) | YES  | UNI | NULL    |                |
+| emailId        | varchar(40) | NO   | UNI | NULL    |                |
+| password       | varchar(20) | NO   |     | NULL    |                |
+| mode           | varchar(10) | YES  |     | normal  |                |
+| lastAccessTime | varchar(50) | YES  |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+6 rows in set (0.06 sec)
+
+mysql> desc history;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| taxi_id    | int         | YES  | MUL | NULL    |       |
+| custName   | varchar(50) | YES  | MUL | NULL    |       |
+| fromLoc    | varchar(50) | NO   |     | NULL    |       |
+| toLoc      | varchar(50) | NO   |     | NULL    |       |
+| pickupTime | int         | NO   |     | NULL    |       |
+| dropTime   | int         | NO   |     | NULL    |       |
+| amount     | int         | YES  |     | NULL    |       |
+| bookedDate | varchar(50) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> desc taxi;
++---------------+------------+------+-----+---------+-------+
+| Field         | Type       | Null | Key | Default | Extra |
++---------------+------------+------+-----+---------+-------+
+| taxi_id       | int        | NO   | PRI | NULL    |       |
+| currentSpot   | varchar(2) | NO   |     | NULL    |       |
+| freeTime      | int        | YES  |     | 6       |       |
+| totalEarnings | int        | NO   |     | 0       |       |
+| originalSpot  | varchar(2) | YES  |     | NULL    |       |
++---------------+------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
